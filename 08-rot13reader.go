@@ -14,7 +14,7 @@ type rot13Reader struct {
 
 func (rot13 rot13Reader) Read(b []byte) (int, error) {
 	n, e := rot13.r.Read(b)
-	for i := 0; i < len(b); i++ {
+	for i := range b {
 		switch {
 			case b[i] >= 65 && b[i] < 65+13:
 				b[i] += 13
